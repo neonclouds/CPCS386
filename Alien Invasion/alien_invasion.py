@@ -8,6 +8,7 @@ from ship import Ship
 from game_stats import GameStats
 from button import Button
 from scoreboard import Scoreboard
+from menu import Menu
 
 import game_functions as gf
 
@@ -38,6 +39,10 @@ def run_game():
     #create the fleet of aliens.
     gf.create_fleet(ai_settings, screen, ship, aliens)
 
+    menu_Screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+
+    menu = Menu(ai_settings, menu_Screen)
+
 
     alien = Alien(ai_settings, screen)
 
@@ -50,6 +55,6 @@ def run_game():
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets)
             gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
-        gf.update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button, highscore_button)
+        gf.update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button, highscore_button, menu)
 
 run_game()

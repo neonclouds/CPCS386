@@ -34,6 +34,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship, aliens,
             stats.reset_stats()
             stats.game_active = True
 
+
             # Reset the scoreboard images.
             sb.prep_score()
             sb.prep_high_score()
@@ -219,7 +220,7 @@ def check_events(ai_settings, screen, stats, sb, play_button, highscore_button, 
         elif event.type == pygame.KEYUP:
             check_keyup_events(event,ship)
 
-def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button, highscore_button):
+def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button, highscore_button, menu):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(ai_settings.bg_color)
@@ -231,13 +232,18 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_bu
     ship.blitme()
     aliens.draw(screen)
 
+
     # Draw the score information.
     sb.show_score()
 
     # Draw the play button if the game is inactive.
     if not stats.game_active:
+        menu.create_menu()
+
         play_button.draw_button()
         highscore_button.draw_highscore()
+
+
 
     #make the most recently drawn screen visible
     pygame.display.flip()
