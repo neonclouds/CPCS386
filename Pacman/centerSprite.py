@@ -8,3 +8,4 @@ class Sprite(pygame.sprite.Sprite):
         self.image = image
         self.rect = image.get_rect()
         self.rect.center = centerPoint
+

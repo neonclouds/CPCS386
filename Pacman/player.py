@@ -12,7 +12,7 @@ class Player(centerSprite.Sprite):
         centerSprite.Sprite.__init__(self, centerPoint, image)
 
         self.pellets = 0
-        self.speed = 8
+        self.speed = 4
         self.y_dist = self.speed
         self.x_dist = self.speed
 
@@ -46,7 +46,7 @@ class Player(centerSprite.Sprite):
         self.rect = self.image.get_rect()
         self.rcenter = self.rect.center
         self.last_frame = pygame.time.get_ticks()
-        return self.rcenter, self.images, self.rect
+        return self.images
 
     def KeyDown(self, key):
 
@@ -78,6 +78,8 @@ class Player(centerSprite.Sprite):
                 monster.Eaten()
             else:
                 pygame.event.post(pygame.event.Event(PLAYER_EATEN, {}))
+
+
 
     def update(self, block_group, pellet_group, super_pellet_group, monster_group):
         #if not self.dead:

@@ -1,16 +1,8 @@
-import sys
-import os
-import pygame
-import time
 
-from pygame.locals import *
 import level001
-import centerSprite
-from helpers import *
 from player import *
 from monster import Monster
 from images import *
-import animated_sprites
 
 BLOCK_SIZE = 16
 

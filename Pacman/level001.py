@@ -1,11 +1,11 @@
 import pygame
-import levelBase
+import levelbase
 from imagerect import ImageRect
 from helpers import load_image
 from helpers import load_pics
 
 
-class level(levelBase.Level):
+class level(levelbase.Level):
     
     def __init__(self):
         self.BLOCK = 1
